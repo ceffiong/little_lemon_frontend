@@ -37,7 +37,7 @@ const specials = [
 function Menu() {
   const [menus] = useState(specials);
   return (
-    <section className="menu">
+    <section className="menu" id="menu">
       <section className="wrapper">
         <section className="top">
           <h2>This week specials!</h2>

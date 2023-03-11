@@ -46,8 +46,6 @@ const testimoniesObj = [
 ];
 function Testimonial() {
   const [testimonies] = useState(testimoniesObj);
-
-  console.log(testimonies);
   return (
     <section className="testimonial">
       <section className="wrapper">

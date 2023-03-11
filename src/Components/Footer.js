@@ -8,6 +8,9 @@ import Phone from "../Images/phone.png";
 import Email from "../Images/email.png";
 import "./Footer.css";
 
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+
 function Footer() {
   return (
     <footer>
@@ -20,16 +23,16 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#">About</a>
+            <HashLink to="/#about">About</HashLink>
           </li>
           <li>
-            <a href="#">Menu</a>
+            <HashLink to="/#menu">Menu</HashLink>
           </li>
           <li>
-            <a href="/reservation">Reservation</a>
+            <Link to="/reservation">Reservation</Link>
           </li>
           <li>
             <a href="#">Order Online</a>
@@ -42,7 +45,7 @@ function Footer() {
           <h3>Contact</h3>
           <div className="footer-address">
             <img src={Address} alt="Address icon" />
-            <p>1455 E Little York Rd, New Your City</p>
+            <p>1455 E Little York Rd, Chicago, USA</p>
           </div>
           <div className="footer-phone">
             <img src={Phone} alt="Phone icon" />

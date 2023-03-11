@@ -3,7 +3,7 @@ import Picture from "../Images/adrian-mario.png";
 
 function About() {
   return (
-    <section className="about">
+    <section className="about" id="about">
       <section className="wrapper about-contents">
         <aside>
           <h1>Little Lemon</h1>

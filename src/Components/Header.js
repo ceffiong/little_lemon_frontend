@@ -1,10 +1,24 @@
 import Logo from "../Images/logo.png";
 import Menu from "../Images/hamburger-menu.png";
 import "./Header.css";
-import { useState } from "react";
-
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 function Header() {
   const [hide, setHide] = useState(true);
+  const ref = useRef();
+
+  useEffect(() => {
+    if (hide === false) {
+      ref.current.style.width = "200px";
+      ref.current.style.padding = "50px 20px";
+      ref.current.style.visibility = "visible";
+    } else {
+      ref.current.style.width = "0";
+      ref.current.style.padding = "50px 0";
+      ref.current.style.visibility = "hidden";
+    }
+  }, [hide]);
 
   return (
     <>
@@ -17,78 +31,51 @@ function Header() {
             onClick={() => setHide(!hide)}
           />
         </div>
-        {hide === false ? (
-          <nav className="mobile-nav mobile-nav-width">
-            <div>
-              <button onClick={() => setHide(!hide)}>&times;</button>
-            </div>
-            <ul>
-              <li>
-                <a href="/home">Home</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
-              <li>
-                <a href="/menu">Menu</a>
-              </li>
-              <li>
-                <a href="/reservation">Reservation</a>
-              </li>
-              <li>
-                <a href="/order_online">Order Online</a>
-              </li>
-              <li>
-                <a href="/login">Login</a>
-              </li>
-            </ul>
-          </nav>
-        ) : (
-          <nav className="mobile-nav">
-            <div>
-              <button onClick={() => setHide(!hide)}>&times;</button>
-            </div>
-            <ul>
-              <li>
-                <a href="/home">Home</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
-              <li>
-                <a href="/menu">Menu</a>
-              </li>
-              <li>
-                <a href="/reservation">Reservation</a>
-              </li>
-              <li>
-                <a href="/order_online">Order Online</a>
-              </li>
-              <li>
-                <a href="/login">Login</a>
-              </li>
-            </ul>
-          </nav>
-        )}
+
+        <nav ref={ref} className="mobile-nav">
+          <div>
+            <button onClick={() => setHide(!hide)}>&times;</button>
+          </div>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <HashLink to="/#about">About</HashLink>
+            </li>
+            <li>
+              <HashLink to="/#menu">Menu</HashLink>
+            </li>
+            <li>
+              <Link to="/booking">Reservation</Link>
+            </li>
+            <li>
+              <a href="/#order">Order Online</a>
+            </li>
+            <li>
+              <a href="/login">Contact</a>
+            </li>
+          </ul>
+        </nav>
       </header>
       <header className="desktop-header">
         <nav className="wrapper desktop-nav">
           <img src={Logo} alt="logo" />
           <ul>
             <li>
-              <a href="/home">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/about">About</a>
+              <HashLink to="/#about">About</HashLink>
             </li>
             <li>
-              <a href="/menu">Menu</a>
+              <HashLink to="/#menu">Menu</HashLink>
             </li>
             <li>
-              <a href="/reservation">Reservation</a>
+              <Link to="/booking">Reservation</Link>
             </li>
             <li>
-              <a href="/order_online">Order Online</a>
+              <a href="/#order">Order Online</a>
             </li>
             <li>
               <a href="/login">Login</a>
