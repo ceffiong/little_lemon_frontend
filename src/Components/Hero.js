@@ -13,7 +13,7 @@ function Hero() {
             traditional recipes served with a modern twist.
           </p>
           <a href="#" role="button" className="btn">
-            Boot a table
+            Book a table
           </a>
         </aside>
         <aside>

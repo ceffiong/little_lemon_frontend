@@ -32,7 +32,7 @@ function Footer() {
             <HashLink to="/#menu">Menu</HashLink>
           </li>
           <li>
-            <Link to="/reservation">Reservation</Link>
+            <Link to="/booking">Reservation</Link>
           </li>
           <li>
             <a href="#">Order Online</a>
