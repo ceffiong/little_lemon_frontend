@@ -94,7 +94,9 @@ function BookingForm({ availableTimes, updateTimes, submitForm }) {
               value={date}
               onChange={handleDateChange}
             />
-            {msg.error === true && <small>{msg.text}</small>}
+            {msg.error === true && (
+              <small data-testid="res-time-msg">{msg.text}</small>
+            )}
           </div>
 
           <div className="form-div">
@@ -192,8 +194,9 @@ function BookingForm({ availableTimes, updateTimes, submitForm }) {
         <input
           className={msg.error ? "submit-btn-disabled" : "submit-btn"}
           type="submit"
-          value="Continue"
+          value="Submit"
           disabled={msg.error}
+          aria-label="On Click"
         />
       </form>
     </section>

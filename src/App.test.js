@@ -123,3 +123,57 @@ test("Read from localstorage", () => {
   );
   expect(existingBookings.length).toBeGreaterThan(0);
 });
+
+test("Test date input field validation", () => {
+  const availableTimes = fetchAPI(new Date());
+  const updateTimes = () => {
+    return availableTimes;
+  };
+  render(
+    <BrowserRouter>
+      <BookingForm availableTimes={availableTimes} updateTimes={updateTimes}/>
+    </BrowserRouter>
+  );
+
+  const dateInput = screen.getByLabelText(/Date/);
+  fireEvent.change(dateInput, { target: { value: new Date() } });
+  const submitButton = screen.getByRole("button");
+  //submit button should be disabled since an invalid date has been selected
+  expect(submitButton.disabled).toBe(true)
+});
+
+test("Test invalid form state (submit validation)", () => {
+  const availableTimes = fetchAPI(new Date());
+  const updateTimes = () => {
+    return availableTimes;
+  };
+  render(
+    <BrowserRouter>
+      <BookingForm availableTimes={availableTimes} updateTimes={updateTimes}/>
+    </BrowserRouter>
+  );
+
+  const dateInput = screen.getByLabelText(/Date/);
+  fireEvent.change(dateInput, { target: { value: "" } });
+  const submitButton = screen.getByRole("button");
+  //submit button should be disabled since an invalid date has been selected
+  expect(submitButton.disabled).toBe(true)
+});
+
+test("Test valid form state (submit validation)", () => {
+  const availableTimes = fetchAPI(new Date());
+  const updateTimes = () => {
+    return availableTimes;
+  };
+  render(
+    <BrowserRouter>
+      <BookingForm availableTimes={availableTimes} updateTimes={updateTimes}/>
+    </BrowserRouter>
+  );
+
+  const dateInput = screen.getByLabelText(/Date/);
+  fireEvent.change(dateInput, { target: { value: "2034-12-31" } });
+  const submitButton = screen.getByRole("button");
+  //submit button should be disabled since an invalid date has been selected
+  expect(submitButton.disabled).toBe(false)
+});
