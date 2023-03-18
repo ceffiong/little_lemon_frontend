@@ -36,7 +36,7 @@ function App() {
         localStorage.getItem("charles-little-lemon-bookings-data")
       );
       if (existingBookings) {
-        existingBookings.unshiftl(formData);
+        existingBookings.unshift(formData);
         localStorage.setItem(
           "charles-little-lemon-bookings-data",
           JSON.stringify(existingBookings)
