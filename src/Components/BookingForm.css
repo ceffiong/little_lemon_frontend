@@ -68,21 +68,26 @@ small {
 }
 
 select,
-input[type="date"] {
-  all: unset;
-  background-color: #edefee;
+input[type="date"],
+input[type="text"],
+input[type="email"] {
   border-radius: 16px;
-  padding: 20px 30px;
+  padding: 14px 22px;
   font-weight: 500;
   font-size: 18px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: none;
   font-family: inherit;
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;
-  outline: none;
-  text-align: center;
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: #333;
+  border-right: 22px solid transparent;
+}
+
+input[type="date"] {
+  border-right: 0;
 }
 
 textarea {
@@ -123,19 +128,9 @@ textarea {
   display: inline-block;
 }
 
-/*select:not(:checked) {
-  background-color: #495e57;
-  color: #fffefc;
-}
-
-option:checked {
-  background-color: #495e57;
-  color: #fffefc;
-}*/
-
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .booking-form > div {
-    grid-template-columns: 1fr 1fr;
+  .booking-form {
+    padding: 42px 120px;
   }
 }

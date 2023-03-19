@@ -38,7 +38,6 @@ function ConfirmedBooking() {
           </Link>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

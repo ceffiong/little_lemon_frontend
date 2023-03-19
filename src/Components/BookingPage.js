@@ -11,7 +11,6 @@ function BookingPage({ availableTimes, updateTimes, submitForm }) {
         updateTimes={updateTimes}
         submitForm={submitForm}
       />
-      <Footer />
     </>
   );
 }
